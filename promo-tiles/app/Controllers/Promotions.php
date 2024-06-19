@@ -68,11 +68,68 @@ class Promotions extends BaseController
         . view('templates/footer');
     }
 
-
-    public function edit($id): string
+    public function edit($id)
     {
-        // return view('welcome_message');
+        $promoModel = new PromotionModel();
+        $promotion = $promoModel->find($id);
+
+        if ($promotion === null) {
+            return redirect()->to('/promotions')->with('error', 'Promotion not found.');
+        }
+
+        return view('templates/header')
+            . view('promotions/edit', ['promotion' => $promotion])
+            . view('templates/footer');
     }
+
+    public function update($id)
+    {
+        $data = $this->request->getPost(['title', 'description']);
+        $image = $this->request->getFile('image');
+
+        if (! $this->validateData($data, [
+            'title' => 'required|max_length[255]|min_length[3]',
+            'description' => 'required|max_length[255]|min_length[3]',
+            'image' => 'uploaded[image]|is_image[image]',
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+        
+        $promoModel = model(PromotionModel::class);
+        $promotion = $promoModel->find($id);
+        
+        if (!$promotion) {
+            return redirect()->to('/promotions')->with('error', 'Promotion not found.');
+        }
+        
+        if ($image->isValid() && ! $image->hasMoved()) {
+            $this->deleteImageIfExists($promotion['image_url']);
+            
+            $imageName = $image->getRandomName();
+            $image->move('uploads/', $imageName);
+        } else {
+            $imageName = $promotion['image_url'];
+        }
+
+        $validatedData = [
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'image_url' => $imageName 
+        ];
+
+        $promoModel->update($id, $validatedData);
+
+        return redirect()->to('/promotions')->with('success', 'Promotion updated successfully.');
+    }
+
+    private function deleteImageIfExists($imageName)
+    {
+        $imagePath = 'uploads/' . $imageName;
+        if (file_exists($imagePath)) {
+            unlink($imagePath); 
+        }
+    }
+
 
     public function delete($id)
     {
