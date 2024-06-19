@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <title>Promotions</title>
+</head>
+<body>
+  <!-- Header -->
+  <header class="p-2 mt-4 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <div>
+          <span class="h3">PROMOTIONS</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <div class="mt-4 container">
+      <!-- Promotion #1 -->
+      <div class="row mt-5 bg-gray justify-content-center" id="promo1">
+        <img src="https://placehold.co/710x300" class="image img-fluid border border-dark mr-lg-3" alt="Responsive image">
+        <div class="col-xxl-5 align-content-center">
+          <div class="d-inline-block m-3">
+            <p class="text-wrap m-0">PROMO #1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum nulla vitae risus maximus euismod. Donec eget nisl pellentesque, egestas justo quis, semper neque. Suspendisse potenti. Proin mollis ultrices ullamcorper. Fusce pellentesque, purus non scelerisque tincidunt, nulla urna venenatis lacus, ac pulvinar ex tellus imperdiet magna. Phasellus et sem in lorem tempor venenatis. Phasellus orci ligula, luctus nec iaculis ac, posuere a sapien.</p>
+            <br/>
+            <a href="#" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalInfo" data-bs-info="Information from promotion 1">*More information</a>
+            <button class="btn btn-danger rounded-0 d-block mt-3" style="width: 180px;" onclick="setFirst('promo1')" data-bs-toggle="modal">CTA #1</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotion #2 -->
+      <div class="row mt-5 bg-gray justify-content-center" id="promo2">
+        <img src="https://placehold.co/710x300" class="image img-fluid border border-dark" alt="Responsive image">
+        <div class="col-xxl-5 align-content-center">
+          <div class="d-inline-block m-3">
+            <p class="text-wrap m-0">PROMO #2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum nulla vitae risus maximus euismod. Donec eget nisl pellentesque, egestas justo quis, semper neque. Suspendisse potenti. Proin mollis ultrices ullamcorper. Fusce pellentesque, purus non scelerisque tincidunt, nulla urna venenatis lacus, ac pulvinar ex tellus imperdiet magna. Phasellus et sem in lorem tempor venenatis. Phasellus orci ligula, luctus nec iaculis ac, posuere a sapien.</p>
+            <br/>
+            <a href="#" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalInfo" data-bs-info="Information from promotion 2">*More information</a>
+            <button class="btn btn-danger rounded-0 d-block mt-3" style="width: 180px;" onclick="setFirst('promo2')" data-bs-toggle="modal">CTA #2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotion #3 -->
+      <div class="row mt-5 bg-gray justify-content-center" id="promo3">
+        <img src="https://placehold.co/710x300" class="image img-fluid border border-dark" alt="Responsive image">
+        <div class="col-xxl-5 align-content-center">
+          <div class="d-inline-block m-3">
+            <p class="text-wrap m-0">PROMO #3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum nulla vitae risus maximus euismod. Donec eget nisl pellentesque, egestas justo quis, semper neque. Suspendisse potenti. Proin mollis ultrices ullamcorper. Fusce pellentesque, purus non scelerisque tincidunt, nulla urna venenatis lacus, ac pulvinar ex tellus imperdiet magna. Phasellus et sem in lorem tempor venenatis. Phasellus orci ligula, luctus nec iaculis ac, posuere a sapien.</p>
+            <br/>
+            <a href="#" class="text-decoration-none link-dark" data-bs-toggle="modal" data-bs-target="#modalInfo" data-bs-info="Information from promotion 3">*More information</a>
+            <button class="btn btn-danger rounded-0 d-block mt-3" style="width: 180px;" onclick="setFirst('promo3')" data-bs-toggle="modal">CTA #3</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="modalInfo" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Promo information</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Modal body content will be dynamically filled -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <!-- JavaScript dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous"></script>
+
+  <script>
+    // Function to move promotional element to the top
+    function setFirst(promoId) {
+        var promoElement = $('#' + promoId);
+        promoElement.parent().prepend(promoElement);
+    }
+      
+    $(document).ready(function() {
+      // Show dynamic information in modal
+      $('#modalInfo').on('show.bs.modal', function(e) {
+        var value = $(e.relatedTarget).data('bs-info');
+        var modal = $(this);
+        modal.find('.modal-body').text(value);
+      });
+    });
+  </script>
+</body>
+</html>
