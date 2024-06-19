@@ -7,6 +7,15 @@
         <?= session('error') ?>
     </div>
 <?php endif; ?>
+<?php if (session()->has('errors')): ?>
+    <div>
+        <ul>
+            <?php foreach (session('errors') as $error): ?>
+                <li><?= esc($error) ?></li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+<?php endif ?>
 
 <a href="/promotions/new" class="btn btn-primary">Create Promotion</a>
 <?php if (!empty($promo_list)): ?>
@@ -19,6 +28,7 @@
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit">Delete</button>
             </form>
+            <a href="/promotions/edit/<?= esc($promo_item['id']) ?>">Edit</a>
         </div>
     <?php endforeach; ?>
 <?php else: ?>
