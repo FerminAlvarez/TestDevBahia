@@ -57,7 +57,7 @@ class Promotions extends BaseController
         $promoModel = model(PromotionModel::class);
         $promoModel->insert($validatedData);
     
-        return redirect()->to('/promotions/success');
+        return redirect()->to('/promotions')->with('success', 'Promotion created successfully.');
     }
     
 
