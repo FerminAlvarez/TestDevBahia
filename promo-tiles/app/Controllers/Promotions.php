@@ -8,7 +8,13 @@ class Promotions extends BaseController
 {
     public function index(): string
     {
-        return view('welcome_message');
+        $promoModel = model(PromotionModel::class);
+
+        $data['promo_list'] = $promoModel->findAll();
+
+        return view('templates/header')
+            . view('promotions/index', $data)
+            . view('templates/footer');
     }
 
     
