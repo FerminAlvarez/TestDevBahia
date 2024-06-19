@@ -17,15 +17,13 @@
   <?= csrf_field() ?>
   <div class="container">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="<?= old('title', esc($promotion['title'])) ?>">
+    <input type="text" id="title" name="title" value="<?= old('title', esc($promotion['title'])) ?>" required>
     
     <label for="description">Description:</label>
-    <textarea id="description" name="description">
-        <?= old('description', esc($promotion['description'])) ?>
-    </textarea>
+    <textarea id="description" name="description" required><?=old('description', esc($promotion['description']))?></textarea>
     
     <label for="image">Image:</label>
-    <input type="file" id="image" name="image">
+    <input type="file" id="image" name="image" required>
     
     <button type="submit" class="btn btn-edit">Update Promotion</button>
     <a href="/promotions" class="btn btn-danger">Cancel</a>

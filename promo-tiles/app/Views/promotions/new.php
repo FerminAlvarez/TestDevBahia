@@ -17,14 +17,14 @@
   <?= csrf_field() ?>
   <div class="container">
       <label for="name">Title</label>
-      <input type="text" name="title" id="title" class="form-control">
+      <input type="text" name="title" id="title" class="form-control" required>
 
       <label for="description">Description</label>
-      <textarea name="description" id="description" class="form-control"></textarea>
+      <textarea name="description" id="description" class="form-control" required></textarea>
 
       <label for="code">Image</label>
-      <input type="file" name="image" id="image" class="form-control">
-      
+      <input type="file" name="image" id="image" class="form-control" required>
+
       <button type="submit" class="btn btn-primary">Create</button>
     </div>
     <a href="/promotions" class="btn btn-danger">Cancel</a>
