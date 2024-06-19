@@ -74,8 +74,22 @@ class Promotions extends BaseController
         // return view('welcome_message');
     }
 
-    public function delete($id): string
+    public function delete($id)
     {
-        // return view('welcome_message');
+        $promoModel = model(PromotionModel::class);
+        $promotion = $promoModel->find($id);
+        
+        if ($promotion) {
+            $imagePath = 'uploads/' . $promotion['image_url'];
+            if (file_exists($imagePath) && is_file($imagePath)) {
+                unlink($imagePath);
+            }
+
+            $promoModel->delete($id);
+            return redirect()->to('/promotions')->with('success', 'Promotion deleted successfully.');
+        } else {
+            return redirect()->to('/promotions')->with('error', 'Promotion not found.');
+        }
     }
+
 }
