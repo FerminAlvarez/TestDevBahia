@@ -1,16 +1,16 @@
-<?php if (session()->has('success')): ?>
+<?php if (session()->has('success')) : ?>
     <div class="alert alert-success">
         <?= session('success') ?>
     </div>
-<?php elseif (session()->has('error')): ?>
+<?php elseif (session()->has('error')) : ?>
     <div class="alert alert-danger">
         <?= session('error') ?>
     </div>
 <?php endif; ?>
-<?php if (session()->has('errors')): ?>
+<?php if (session()->has('errors')) : ?>
     <div class="alert alert-danger">
         <ul>
-            <?php foreach (session('errors') as $error): ?>
+            <?php foreach (session('errors') as $error) : ?>
                 <li><?= esc($error) ?></li>
             <?php endforeach ?>
         </ul>
@@ -18,8 +18,8 @@
 <?php endif ?>
 
 <a href="/promotions/new" class="btn btn-primary">Create Promotion</a>
-<?php if (!empty($promo_list)): ?>
-    <?php foreach ($promo_list as $promo_item): ?>
+<?php if (!empty($promo_list)) : ?>
+    <?php foreach ($promo_list as $promo_item) : ?>
         <div class="promo-item">
             <h3 class="promo-title"><?= esc($promo_item['title']) ?></h3>
             <p class="promo-description"><?= esc($promo_item['description']) ?></p>
@@ -33,7 +33,7 @@
             </div>
         </div>
     <?php endforeach; ?>
-<?php else: ?>
+<?php else : ?>
     <h3>No Promotions</h3>
     <p>Unable to find any promotion for you.</p>
 <?php endif; ?>

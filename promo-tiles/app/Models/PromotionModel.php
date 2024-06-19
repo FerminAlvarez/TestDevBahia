@@ -17,5 +17,4 @@ class PromotionModel extends Model
         'description',
         'image_url',
     ];
-
 }

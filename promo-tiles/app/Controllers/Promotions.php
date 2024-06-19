@@ -17,51 +17,52 @@ class Promotions extends BaseController
             . view('templates/footer');
     }
 
-    
+
     public function new(): string
     {
         return view('templates/header')
         . view('promotions/new')
         . view('templates/footer');
-
     }
 
     public function create()
     {
         $data = $this->request->getPost(['title', 'description']);
         $image = $this->request->getFile('image');
-    
-        if (! $this->validateData($data, [
+
+        if (
+            ! $this->validateData($data, [
             'title' => 'required|max_length[255]|min_length[3]',
             'description' => 'required|max_length[255]|min_length[3]',
             'image' => 'uploaded[image]|is_image[image]',
-        ])) {
+            ])
+        ) {
             // The validation fails, so returns the form.
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-        
+
         if ($image->isValid() && ! $image->hasMoved()) {
             $imageName = $image->getRandomName();
             $image->move('uploads/', $imageName);
-        }else {
+        } else {
             return redirect()->back()->withInput()->with('error', 'Failed to upload image.');
         }
-    
+
         $post = $this->validator->getValidated();
         $validatedData = [
             'title' => $post['title'],
             'description' => $post['description'],
-            'image_url' => $imageName 
+            'image_url' => $imageName
         ];
-    
+
         $promoModel = model(PromotionModel::class);
         $promoModel->insert($validatedData);
-    
+
         return redirect()->to('/promotions')->with('success', 'Promotion created successfully.');
     }
-    
 
-    public function success() : string 
+
+    public function success(): string
     {
         return view('templates/header')
         . view('promotions/success')
@@ -87,24 +88,26 @@ class Promotions extends BaseController
         $data = $this->request->getPost(['title', 'description']);
         $image = $this->request->getFile('image');
 
-        if (! $this->validateData($data, [
+        if (
+            ! $this->validateData($data, [
             'title' => 'required|max_length[255]|min_length[3]',
             'description' => 'required|max_length[255]|min_length[3]',
             'image' => 'uploaded[image]|is_image[image]',
-        ])) {
+            ])
+        ) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-        
+
         $promoModel = model(PromotionModel::class);
         $promotion = $promoModel->find($id);
-        
+
         if (!$promotion) {
             return redirect()->to('/promotions')->with('error', 'Promotion not found.');
         }
-        
+
         if ($image->isValid() && ! $image->hasMoved()) {
             $this->deleteImageIfExists($promotion['image_url']);
-            
+
             $imageName = $image->getRandomName();
             $image->move('uploads/', $imageName);
         } else {
@@ -114,7 +117,7 @@ class Promotions extends BaseController
         $validatedData = [
             'title' => $data['title'],
             'description' => $data['description'],
-            'image_url' => $imageName 
+            'image_url' => $imageName
         ];
 
         $promoModel->update($id, $validatedData);
@@ -126,7 +129,7 @@ class Promotions extends BaseController
     {
         $imagePath = 'uploads/' . $imageName;
         if (file_exists($imagePath)) {
-            unlink($imagePath); 
+            unlink($imagePath);
         }
     }
 
@@ -135,7 +138,7 @@ class Promotions extends BaseController
     {
         $promoModel = model(PromotionModel::class);
         $promotion = $promoModel->find($id);
-        
+
         if ($promotion) {
             $imagePath = 'uploads/' . $promotion['image_url'];
             if (file_exists($imagePath) && is_file($imagePath)) {
@@ -148,5 +151,4 @@ class Promotions extends BaseController
             return redirect()->to('/promotions')->with('error', 'Promotion not found.');
         }
     }
-
 }

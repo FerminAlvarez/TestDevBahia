@@ -1,13 +1,13 @@
 <h2>Edit Promotion</h2>
 
-<?php if (session()->has('errors')): ?>
+<?php if (session()->has('errors')) : ?>
     <div class="alert alert-danger">
-        <?php foreach (session('errors') as $error): ?>
+        <?php foreach (session('errors') as $error) : ?>
             <?= esc($error) ?><br>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-<?php if (session()->has('error')): ?>
+<?php if (session()->has('error')) : ?>
     <div>
         <?= session('error') ?>
     </div>
