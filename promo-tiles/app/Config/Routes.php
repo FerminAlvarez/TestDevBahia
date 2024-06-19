@@ -8,4 +8,9 @@ use App\Controllers\Promotions;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+
 $routes->get('/promotions', [Promotions::class, 'index']);
+$routes->get('/promotions/new', [Promotions::class, 'new']);
+$routes->get('promotions/success', [Promotions::class, 'success']);
+
+$routes->post('promotions', [Promotions::class, 'create']);
