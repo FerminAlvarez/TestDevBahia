@@ -8,6 +8,7 @@
     </div>
 <?php endif; ?>
 
+<a href="/promotions/new" class="btn btn-primary">Create Promotion</a>
 <?php if (!empty($promo_list)): ?>
     <?php foreach ($promo_list as $promo_item): ?>
         <div>
