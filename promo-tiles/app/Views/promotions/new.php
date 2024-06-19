@@ -9,6 +9,11 @@
         </ul>
     </div>
 <?php endif ?>
+<?php if (session()->has('error')): ?>
+    <div class="alert alert-danger">
+        <?= session('error') ?>
+    </div>
+<?php endif; ?>
 
 <form action="/promotions" method="post" enctype="multipart/form-data">
   <?= csrf_field() ?>
