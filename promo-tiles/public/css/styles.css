@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f3f4f6;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.promo-item {
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 50vw;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  min-width: 6rem; /* Ancho mínimo para los botones */
+  height: 3rem; /* Altura uniforme */
+  box-sizing: border-box; /* Incluye el padding en las dimensiones */
+  margin: 10px;
+}
+
+.btn-primary {
+  background-color: #38a169;
+  color: #ffffff;
+}
+
+.btn-danger {
+  background-color: #e3342f;
+  color: #ffffff;
+}
+
+.btn-edit {
+  background-color: #3490dc;
+  color: #ffffff;
+}
+
+.alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #38c172;
+  color: #ffffff;
+}
+
+.alert-danger {
+  background-color: #e53e3e;
+  color: #ffffff;
+}
+
+.promo-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.promo-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.promo-description {
+  margin-bottom: 15px;
+}
+
+.promo-image {
+  max-width: 70%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  
+}
+
+.delete-form {
+  display: inline-block;
+}
+
+.delete-form button {
+  background-color: #e3342f;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-form button:hover {
+  background-color: #c53030;
+}
+
+.edit-link {
+  margin-left: 10px;
+  color: #3490dc;
+  text-decoration: none;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}

@@ -1,7 +1,7 @@
 <h2>Edit Promotion</h2>
 
 <?php if (session()->has('errors')): ?>
-    <div>
+    <div class="alert alert-danger">
         <?php foreach (session('errors') as $error): ?>
             <?= esc($error) ?><br>
         <?php endforeach; ?>
@@ -15,14 +15,19 @@
 
 <form action="/promotions/update/<?= esc($promotion['id']) ?>" method="post" enctype="multipart/form-data">
   <?= csrf_field() ?>
-  <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title" value="<?= old('title', esc($promotion['title'])) ?>"><br><br>
+  <div class="container">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<?= old('title', esc($promotion['title'])) ?>">
     
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description"><?= old('description', esc($promotion['description'])) ?></textarea><br><br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">
+        <?= old('description', esc($promotion['description'])) ?>
+    </textarea>
     
-    <label for="image">Image:</label><br>
-    <input type="file" id="image" name="image"><br><br>
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image">
     
-    <button type="submit">Update Promotion</button>
+    <button type="submit" class="btn btn-edit">Update Promotion</button>
+    <a href="/promotions" class="btn btn-danger">Cancel</a>
+</div>
 </form>

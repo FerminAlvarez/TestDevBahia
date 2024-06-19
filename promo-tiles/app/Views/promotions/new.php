@@ -1,7 +1,5 @@
-<h2><?= esc($title) ?></h2>
-
 <?php if (session()->has('errors')): ?>
-    <div>
+    <div class="alert alert-danger">
         <ul>
             <?php foreach (session('errors') as $error): ?>
                 <li><?= esc($error) ?></li>
@@ -17,20 +15,19 @@
 
 <form action="/promotions" method="post" enctype="multipart/form-data">
   <?= csrf_field() ?>
-  <div>
-    <label for="name">Title</label>
-    <input type="text" name="title" id="title" class="form-control">
-  </div>
-  <div>
-    <label for="description">Description</label>
-    <textarea name="description" id="description" class="form-control"></textarea>
-  </div>
-  <div>
-    <label for="code">Image</label>
-    <input type="file" name="image" id="image" class="form-control">
-  </div>
-  <div>
-    <button type="submit">Create</button>
+  <div class="container">
+      <label for="name">Title</label>
+      <input type="text" name="title" id="title" class="form-control">
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description" class="form-control"></textarea>
+
+      <label for="code">Image</label>
+      <input type="file" name="image" id="image" class="form-control">
+      
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+    <a href="/promotions" class="btn btn-danger">Cancel</a>
   </div>
 </form>
 

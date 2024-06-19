@@ -21,7 +21,7 @@ class Promotions extends BaseController
     public function new(): string
     {
         return view('templates/header')
-        . view('promotions/new', ['title' => 'Create a new Promotion'])
+        . view('promotions/new')
         . view('templates/footer');
 
     }
