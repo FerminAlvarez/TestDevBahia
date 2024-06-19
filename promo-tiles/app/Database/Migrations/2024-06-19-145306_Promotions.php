@@ -29,11 +29,11 @@ class Promo extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('promos');
+        $this->forge->createTable('promotions');
     }
 
     public function down()
     {
-        $this->forge->dropTable('promos');
+        $this->forge->dropTable('promotions');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Promos extends BaseController
+class Promotions extends BaseController
 {
     public function index(): string
     {
